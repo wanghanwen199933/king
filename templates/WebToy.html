@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<audio id="player" autoplay controls></audio>
+</body>
+<script type="application/javascript">
+    var ws = null;
+    function create_ws() {
+        ws = new WebSocket("ws://192.168.11.40:9528/toy/toy001"); // 456
+        ws.onmessage = function (eventMessage) { //456.onmessage
+            var recv_msg = JSON.parse(eventMessage.data);
+            document.getElementById("player").src = "http://192.168.11.40:9527/get_music/" + recv_msg.music;
+        };
+        ws.onclose = function () {
+            create_ws()
+        };
+    }
+
+    create_ws()
+
+</script>
+</html>
