@@ -10,7 +10,7 @@
 # inn2 = func('egon')
 # inn1['bite']()
 # inn2['bite']()
-
+1111111111111111
 
 #
 # class Person:    # 类
